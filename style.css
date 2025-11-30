@@ -1,0 +1,36 @@
+body {
+    font-family: Arial, sans-serif;
+    background: #f7f7f7;
+    margin: 0;
+}
+
+header {
+    background: #1e88e5;
+    padding: 20px;
+    color: white;
+    text-align: center;
+}
+
+#camera-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+    padding: 20px;
+}
+
+.camera-container {
+    position: relative;
+    background: black;
+}
+
+video, canvas {
+    width: 100%;
+}
+
+#settings, #history {
+    padding: 20px;
+    background: white;
+    margin: 15px;
+    border-radius: 10px;
+}
+
