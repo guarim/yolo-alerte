@@ -1,0 +1,16 @@
+{
+  "name": "fall-detection",
+  "version": "1.0.0",
+  "type": "commonjs",
+  "main": "backend/server.js",
+  "scripts": {
+    "start": "node backend/server.js"
+  },
+  "dependencies": {
+    "axios": "^1.6.0",
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.0",
+    "express": "^4.18.0",
+    "twilio": "^4.0.0"
+  }
+}
