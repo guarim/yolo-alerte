@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <title>Surveillance Chute - MultiCam</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <style>
+    body {font-family:system-ui, -apple-system, Roboto, 'Segoe UI', sans-serif; margin:0; padding:12px; background:#f6f8fa;}
+    .grid {display:grid; grid-template-columns:repeat(2,1fr); gap:12px;}
+    .cam {background:white; padding:8px; border-radius:8px; box-shadow:0 2px 6px rgba(0,0,0,0.08);}
+    video {width:100%; height:auto; border-radius:6px; background:black;}
+    .overlay {position:relative;}
+    canvas.overlay-cvs {position:absolute; left:0; top:0; pointer-events:none;}
+    .controls {display:flex; gap:8px; margin-top:8px; align-items:center;}
+    .status {font-weight:600;}
+  </style>
+</head>
+<body>
+  <h2>Surveillance multi-cam (jusqu'à 4)</h2>
+  <div>
+    <label>Choisir slot cam (1..4), sélectionner device :</label>
+    <select id="slotSelect"><option value="0">Slot 1</option><option value="1">Slot 2</option><option value="2">Slot 3</option><option value="3">Slot 4</option></select>
+    <select id="deviceSelect"></select>
+    <button id="startCam">Démarrer</button>
+    <button id="stopCam">Arrêter</button>
+  </div>
+
+  <div class="grid" id="camsGrid">
+    <!-- 4 slots -->
+    <div class="cam" data-slot="0">
+      <h3>Cam 1 <span class="status" id="status-0">idle</span></h3>
+      <div class="overlay">
+        <video id="video-0" autoplay muted playsinline></video>
+        <canvas id="canvas-0" class="overlay-cvs"></canvas>
+      </div>
+      <div class="controls">
+        <label>Sensibilité: <input id="sens-0" type="range" min="1" max="10" value="5"></label>
+        <button class="rec-btn" data-slot="0">Forcer enregistrement</button>
+      </div>
+    </div>
+    <div class="cam" data-slot="1">
+      <h3>Cam 2 <span class="status" id="status-1">idle</span></h3>
+      <div class="overlay">
+        <video id="video-1" autoplay muted playsinline></video>
+        <canvas id="canvas-1" class="overlay-cvs"></canvas>
+      </div>
+      <div class="controls">
+        <label>Sensibilité: <input id="sens-1" type="range" min="1" max="10" value="5"></label>
+        <button class="rec-btn" data-slot="1">Forcer enregistrement</button>
+      </div>
+    </div>
+    <div class="cam" data-slot="2">
+      <h3>Cam 3 <span class="status" id="status-2">idle</span></h3>
+      <div class="overlay">
+        <video id="video-2" autoplay muted playsinline></video>
+        <canvas id="canvas-2" class="overlay-cvs"></canvas>
+      </div>
+      <div class="controls">
+        <label>Sensibilité: <input id="sens-2" type="range" min="1" max="10" value="5"></label>
+        <button class="rec-btn" data-slot="2">Forcer enregistrement</button>
+      </div>
+    </div>
+    <div class="cam" data-slot="3">
+      <h3>Cam 4 <span class="status" id="status-3">idle</span></h3>
+      <div class="overlay">
+        <video id="video-3" autoplay muted playsinline></video>
+        <canvas id="canvas-3" class="overlay-cvs"></canvas>
+      </div>
+      <div class="controls">
+        <label>Sensibilité: <input id="sens-3" type="range" min="1" max="10" value="5"></label>
+        <button class="rec-btn" data-slot="3">Forcer enregistrement</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@4.9.0/dist/tf.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/pose-detection"></script>
+  <!-- Chargement d'un YOLO TFJS exporté (ex: modeles/yolo_web_model/model.json) -->
+  <script>
+    // we'll load models and then start detection
+  </script>
+  <script src="./app.js"></script>
+</body>
+</html>
